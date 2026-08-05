@@ -20,3 +20,27 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+class Solution {
+  public:
+    long long minOperation(vector<int>& arr) {
+        int n=arr.size();
+        long long ans=0;
+        for(int i=0;i<n;i++){
+            for(int j=i;j<n;j++){
+                int l=i,r=j;
+                int count=0;
+                while(l<r){
+                    if(arr[l]!=arr[r]){
+                        count++;
+                    }
+                    l++;
+                    r--;
+                }
+                ans+=count;
+            }
+        }
+        return ans;
+    } 
+};
+
+//Approach 2
