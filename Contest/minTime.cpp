@@ -19,10 +19,24 @@ class Solution {
         sort(positions.begin(), positions.end());
         int n = positions.size();
         int ans = INT_MAX;
+
         for (int i = 0; i <= n - k; i++) {
             int left = positions[i];
             int right = positions[i + k - 1];
-            int time = min(abs(left), abs(right)) + (right - left);
+            int time;
+
+            if (left >= 0) {
+                time = right;
+            } else if (right <= 0) {
+                time = abs(left);
+            } else {
+                // time = min(abs(left), abs(right)) + (right - left);
+                int goLeftFirst = 2 * abs(left) + right;
+                int goRightFirst = abs(left) + 2 * right;
+
+                time = min(goLeftFirst, goRightFirst);
+            }
+
             ans = min(ans, time);
         }
         return ans;

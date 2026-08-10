@@ -24,3 +24,80 @@ class Solution {
         return ans;
     } 
 };
+
+// Approach 2:-
+
+int longestFence(vector<int>& arr) {
+
+    int n = arr.size();
+    int ans = 0;
+
+    // Try every possible target length
+    for (int i = 0; i < n; i++) {
+
+        // Case 1: target is an existing plank
+        int target = arr[i];
+        unordered_map<int, int> freq;
+
+        for (int x : arr) {
+            freq[x]++;
+        }
+
+        int count = freq[target];
+
+        // Try making target using 2 planks
+        for (const auto &x : freq) {
+
+            int a = x.first;
+            int b = target - a;
+
+            if (a >= b)
+                continue; // This prevents counting the same pair twice.
+
+            if (freq.find(b) != freq.end()) {
+                count += min(freq[a], freq[b]);
+            }
+        }
+
+        if (count >= 2) {
+            ans = max(ans, count - 1);
+        }
+    }
+
+    // Also consider sums of two planks as target
+    for (int i = 0; i < n; i++) {
+        for (int j = i + 1; j < n; j++) {
+
+            int target = arr[i] + arr[j];
+            unordered_map<int, int> freq;
+
+            for (int x : arr) {
+                freq[x]++;
+            }
+
+            int count = freq[target];
+
+            for (auto p : freq) {
+                int a = p.first;
+                int b = target - a;
+
+                if (a > b)
+                    continue;
+
+                if (freq.find(b) != freq.end()) {
+                    if (a == b)
+                        count += freq[a] / 2;
+                    else
+                        count += min(freq[a], freq[b]);
+                }
+                
+            }
+
+            if (count >= 2) {
+                ans = max(ans, count - 1);
+            }
+        }
+    }
+
+    return ans;
+}
