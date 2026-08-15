@@ -1,0 +1,7 @@
+Which is better between Into of C++ & Tim of Java in Sorting ?
+
+Ans. :- My choice: C++ for Sorting
+
+Code length is Usually shorter.
+Since you're currently studying Merge Sort, Quick Sort, Prim's, Kruskal's, Knapsack, etc., I'd suggest:
+Learn the algorithm in C++ → understand the logic → practice it on coding platforms.
