@@ -37,7 +37,7 @@ int longestFence(vector<int>& arr) {
 
         // Case 1: target is an existing plank
         int target = arr[i];
-        unordered_map<int, int> freq;
+        unordered_map<int,int> freq;
 
         for (int x : arr) {
             freq[x]++;
@@ -69,7 +69,7 @@ int longestFence(vector<int>& arr) {
         for (int j = i + 1; j < n; j++) {
 
             int target = arr[i] + arr[j];
-            unordered_map<int, int> freq;
+            unordered_map<int,int> freq;
 
             for (int x : arr) {
                 freq[x]++;
