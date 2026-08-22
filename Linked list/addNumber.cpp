@@ -17,7 +17,7 @@ class Node {
     Node *next;
     Node(int x) {
         data = x;
-        next = nullptr;
+        next = NULL;
     }
 };
 
@@ -25,10 +25,10 @@ class Solution {
 public:
 
     Node* reverse(Node* head) {
-        Node* prev = nullptr;
+        Node* prev = NULL;
         Node* curr = head;
 
-        while (curr != nullptr) {
+        while (curr != NULL) {
             Node* next = curr->next;
             curr->next = prev;
             prev = curr;
@@ -40,10 +40,10 @@ public:
 
     Node* addTwoLists(Node* head1, Node* head2) {
 
-        while (head1 != nullptr && head1->data == 0)
+        while (head1 != NULL && head1->data == 0)
             head1 = head1->next;
 
-        while (head2 != nullptr && head2->data == 0)
+        while (head2 != NULL && head2->data == 0)
             head2 = head2->next;
 
         if (head1 == nullptr && head2 == nullptr)
