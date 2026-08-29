@@ -29,7 +29,7 @@
 // deleteFront(): Remove the front element 6 from the Deque.
 // frontEle(): Return the front element i.e 3.
 
-#include<stdio.h>
+#include<bits/stdc++.h>
 using namespace std;
 
 class myDeque {
