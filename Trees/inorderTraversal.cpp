@@ -1,8 +1,9 @@
-//Given the root of a binary tree, return its preorder traversal.  A preorder traversal first visits the node, then visits the left child (including its entire subtree), and finally visits the right child (including its entire subtree).
+//Given a root of a Binary Tree, your task is to return its Inorder Traversal.
+// Note: An inorder traversal first visits the left child (including its entire subtree), then visits the node, and finally visits the right child (including its entire subtree).
 
 // Examples:
-// Input: root = [1, 4, N, 4, 2]
-// Output: [1, 4, 4, 2]
+// Input: root = [1, 2, 3, 4, 5]         
+// Output: [4, 2, 5, 1, 3]
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -27,12 +28,12 @@ class Solution {
             return;
         }
         
-        ans.push_back(root->data);
         solve(root->left,ans);
+        ans.push_back(root->data);
         solve(root->right,ans);
     }
     
-    vector<int> preOrder(Node* root) {
+    vector<int> inOrder(Node* root) {
         vector<int> ans;
         solve(root,ans);
         return ans;

@@ -13,3 +13,62 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+class Node {
+public:
+    int data;
+    Node* left;
+    Node* right;
+
+    Node(int val) {
+        data = val;
+        left = NULL;
+        right = NULL;
+    }
+};
+
+class Solution {
+  public:
+    
+    // Find height by going to the left
+    int leftHeight(Node* root) {
+        int h = 0;
+        
+        while(root) {
+            h++;
+            root = root->left;
+        }
+        
+        return h;
+    }
+    
+    // Find height by going to the right
+    int rightHeight(Node* root) {
+        int h = 0;
+        
+        while(root) {
+            h++;
+            root = root->right;
+        }
+        
+        return h;
+    }
+    
+    int countNodes(Node* root) {
+        
+        // Empty tree
+        if(root == NULL)
+            return 0;
+        
+        int lh = leftHeight(root);
+        int rh = rightHeight(root);
+        
+        // If both heights are same,
+        // tree is a perfect binary tree
+        if(lh == rh) {
+            return (1 << lh) - 1;     // OR pow(2, lh) - 1
+        }
+        
+        // Otherwise, count root + left subtree + right subtree
+        return 1 + countNodes(root->left) + countNodes(root->right);
+    }
+};
