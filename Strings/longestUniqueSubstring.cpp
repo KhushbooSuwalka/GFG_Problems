@@ -46,7 +46,7 @@ public:
                 visited[s[left]] = false;
                 left++;
             }
-
+ 
             visited[s[right]] = true;
 
             ans = max(ans, right - left + 1);

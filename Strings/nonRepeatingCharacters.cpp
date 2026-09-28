@@ -15,7 +15,7 @@ class Solution {
         for(char ch:s){
             if(freq[ch]==1){
                 return ch;
-            }
+            } 
         }
         
         return '$';

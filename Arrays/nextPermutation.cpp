@@ -3,6 +3,11 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+//Approach:-
+// 1. Right se pehla decreasing element find karo — nums[i] < nums[i+1]
+// 2. Right side se just greater element find karo aur swap karo.
+// 3. i+1 se end tak reverse karo, taaki smallest possible arrangement mile.
+
 class Solution {
   public:
     void nextPermutation(vector<int>& arr) {
@@ -26,6 +31,6 @@ class Solution {
             swap(arr[pivot],arr[succesor]);
         }
         
-        reverse(arr.begin() + pivot +1,arr.end());
+        reverse(arr.begin() + pivot + 1,arr.end());
     }
 };

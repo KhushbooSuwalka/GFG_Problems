@@ -59,7 +59,7 @@ public:
                 if(mat[i][j] == word[0]) {
 
                     if(solve(mat, word, i, j, 0))
-                        return true;
+                        return true;                      
                 }
             }
         }
